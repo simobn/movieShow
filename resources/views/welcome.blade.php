@@ -9,23 +9,88 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <script src="{{asset('js/jquery-3.6.3.js')}}"></script>
         <!-- Styles -->
+        <style>
+            .btn-close {
+                color: #aaaaaa;
+                font-size: 20px;
+                text-decoration: none;
+                padding:10px;
+                position: absolute;
+                right: 7px;
+                z-index: 99;
+                cursor: pointer;
+                top: 0;
+            }
+            .btn-close:hover {
+                color: #919191;
+            }
+            .modale:before {
+                content: "";
+                display: none;
+                background: rgba(0, 0, 0, 0.6);
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 10;
+            }
+            .opened:before {
+                display: block;
+            }
+            .opened .modal-dialog {
+                -webkit-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                transform: translate(0, 0);
+                top: 20%;
+            }
+            .modal-dialog {
+                border: #333333 solid 0px;
+                border-radius: 5px;
+                /*margin-left: -200px;*/
+                text-align:center;
+                position: fixed;
+                left: 50%;
+                transform: translateX(-50%)!important;
+                top: -100%;
+                z-index: 11;
+                width: 720px;
+                box-shadow:0 5px 10px rgba(0,0,0,0.3);
+                -ms-transform: translate(0, -500%);
+                -webkit-transition: -webkit-transform 0.3s ease-out;
+                -moz-transition: -moz-transform 0.3s ease-out;
+                -o-transition: -o-transform 0.3s ease-out;
+                transition: transform 0.3s ease-out;
+            }
+            .modal-body {
+                padding: 20px;
+            }
+            .modal-header {
+                border-bottom: #eeeeee solid 1px;
+            }
+            .modal-header h2 {
+                font-size: 20px;
+            }
+
+        </style>
     </head>
     <body class="antialiased">
-    <div class="w-full min-h-screen bg-black text-white flex flex-col items-center justify-center relative">
+    <div class="w-full min-h-screen bg-black text-white flex flex-col items-center justify-center relative" id="home">
         <header class="flex absolute top-0 w-full justify-end py-5">
             <nav class=" border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 ">
                 <div class="flex flex-wrap justify-between items-center mx-auto w-full">
                     <div class="hidden justify-end items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                         <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                             <li>
-                                <a href="#" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
+                                <a href="#home" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Biographies of Team</a>
+                                <a href="#bio" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Biographies of Team</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Relationship Advice</a>
+                                <a href="#relatioship_advices" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Relationship Advice</a>
                             </li>
                             <li>
                                 <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">What I Loved About MTDAHL</a>
@@ -41,11 +106,18 @@
                 </div>
             </nav>
         </header>
-        <div class="text-center max-w-3xl mx-auto absolute top-[50%] lef-[50%] z-20">
+        <div class="text-center max-w-3xl mx-auto absolute top-[50%] lef-[50%] z-20" >
             This is an epic view into the workings and non-working interactions of an inner city youthful adult man - woman 1983 couple. The couple act out a critical view of the imbalance within their union and the innovative/abusive methods they use to resolve that which stands in between the success of their one-sided Love affair. The viewer should prepare to be surprised and shocked.
-            <a href="https://www.imdb.com/video/vi3630481945/?playlistId=nm4730557?ref_=ext_shr_lnk" target="_blank" class="border border-white rounded px-6 py-3 block mt-4 hover:bg-gray-100 hover:text-gray-500">
+            <button  class="openmodale border border-white rounded px-6 py-3 block mt-4 hover:bg-gray-100 hover:text-gray-500 mx-auto">
                 watch trailer
-            </a>
+            </button>
+            <div class="modale" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-header">
+                        <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <p class="font-bold text-xl capitalize absolute top-[90px] left-0 p-16 ">MTDAHL</p>
         <p class="font-bold text-xl capitalize absolute top-[250px] left-0 p-16">MTDAHL</p>
@@ -60,7 +132,7 @@
     </div>
 
 {{--    biography section starts here--}}
-    <div class="w-full bg-cover py-16"  style="background-image: url({{asset('/images/back.jpg')}})">
+    <div class="w-full bg-cover py-16"  style="background-image: url({{asset('/images/back.jpg')}})" id="bio">
         <hr class="bg-white w-1/2 mx-auto" >
         <div class="w-full py-20">
             <h1 class="font-bold p-8 my-8 text-2xl text-center text-white ">Team Biographies</h1>
@@ -296,7 +368,7 @@
         </div>
     </div>
 {{--    biography section ends here--}}
-    <div class="w-full bg-cover bg-black">
+    <div class="w-full bg-cover bg-black" id="relatioship_advices">
         <div class="w-full h-screen bg-black py-20 flex flex-wrap">
             <div class="w-1/4 h-full flex flex-col items-center justify-between py-10">
                 <div class="w-3/4 mx-auto text-left">
@@ -306,8 +378,7 @@
                 <div class="w-3/4 mx-auto text-left">
                     <h3 class="text-start text-xl text-white font-bold mt-2 w-2/3">up next</h3>
                     <div class="w-full h-60 ">
-                        <video id="myVideo" class="w-full cursor-pointer" src="{{asset('videos/v2.mp4')}}"></video>
-{{--                        <img src="{{asset('images/godfather.jpg')}}" alt="" class="w-full object-cover">--}}
+                        <video class="w-full cursor-pointer" src="{{asset('videos/v2.mp4')}}" id="small-video"></video>
                         <p class="font-bold">the god father</p>
                     </div>
                 </div>
@@ -315,15 +386,10 @@
             </div>
             <div class="w-3/4 h-full flex">
                 <div class="w-11/12 h-full relative">
-                    <video  controls class="w-full h-full">
+                    <video  controls src="{{asset('videos/v1.mp4')}}" class="w-full h-full" id="on-play">
                         <source src="{{asset('videos/v1.mp4')}}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-{{--                    <img src="{{asset('images/bb.jpg')}}" alt="" class="w-full h-full object-cover">--}}
-{{--                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24 text-white cursor-pointer hover:text-gray-500 absolute top-[50%] left-[50%] duration-75">--}}
-{{--                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />--}}
-{{--                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />--}}
-{{--                    </svg>--}}
                 </div>
                 <div class="w-1/12 flex flex-col text-white items-center justify-center mx-auto">
                     <span>
@@ -362,5 +428,40 @@
             @endforeach
         </div>
     </div>
+    <script>
+        $('#small-video').on('click',function (e) {
+            let toPlay = $(e.target)[0].src;
+            let nextPlay = $("#on-play").attr('src')
+            //clear on play src
+            var currentVideo = $("#on-play");
+            // Create a new video element with updated source
+            var newVideo = $('<video controls class="w-full h-full">').attr("src", toPlay);
+            newVideo.html(`<source src="${toPlay}" type="video/mp4">`)
+            // Replace the current video element with the new one
+            currentVideo.replaceWith(newVideo);
+
+
+            let smallVideo = $('#small-video')
+            let newSmallVideo = $('<video  class="w-full cursor-pointer" id="small-video">').attr("src", nextPlay);
+            smallVideo.replaceWith(newSmallVideo)
+        })
+
+        $('.openmodale').click(function (e) {
+            e.preventDefault();
+            $('.modale').addClass('opened');
+            let html = `
+                    <video  controls src="{{asset('videos/trailer.mp4')}}" class="w-[720px] h-[480px]" id="trailer-play">
+                        <source src="{{asset('videos/trailer.mp4')}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>`
+            $('.modal-dialog').append(html)
+        });
+        $('.closemodale').click(function (e) {
+            e.preventDefault();
+            // $('.modal-dialog').empty()
+            $('#trailer-play').remove()
+            $('.modale').removeClass('opened');
+        });
+    </script>
     </body>
 </html>
