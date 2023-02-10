@@ -93,7 +93,7 @@
                                 <a href="#relatioship_advices" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Relationship Advice</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">What I Loved About MTDAHL</a>
+                                <a href="#what_i_loved" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">What I Loved About MTDAHL</a>
                             </li>
                             <li>
                                 <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Upcoming Screenings</a>
@@ -236,7 +236,7 @@
                 </div>
                 <div class="flex flex-col justify-between p-4 leading-normal">
                     <h5 class="ml-48 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SASHA ANGLIN</h5>
-                    <h3 class="ml-48 mb-1 text-xs font-bold tracking-tight text-gray-900 dark:text-white">THEATER, commercial</h3>
+                    <h3 class="ml-48 mb-1 text-xs font-bold tracking-tight text-gray-900 dark:text-white ca">Theater, commercial</h3>
                     <p class=" ml-48 mb-3 font-normal text-gray-700 dark:text-gray-400">Sasha-Gaye Anglin is originally from Spanish Town, Jamaica and now resides in the city of Philadelphia.
                         She has a background in theater, commercial, and film work and recently made her directorial debut with
                         the Zoom production “Ama &amp; Coltrane.” Her training credits include the studying of Meisner’s acting
@@ -368,7 +368,7 @@
         </div>
     </div>
 {{--    biography section ends here--}}
-    <div class="w-full bg-cover bg-black" id="relatioship_advices">
+    <div class="w-full bg-cover bg-black" id="what_i_loved">
         <div class="w-full h-screen bg-black py-20 flex flex-wrap">
             <div class="w-1/4 h-full flex flex-col items-center justify-between py-10">
                 <div class="w-3/4 mx-auto text-left">
@@ -407,6 +407,49 @@
                         </svg>
                     </span>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full bg-cover bg-black" id="relatioship_advices">
+        <div class="w-full h-screen bg-black py-20 flex flex-wrap">
+            <div class="w-3/4 h-full flex">
+                <div class="w-1/12 flex flex-col text-white items-center justify-center mx-auto">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                        </svg>
+
+                    </span>
+                    <span class="mt-4">1</span>
+                    <span>/</span>
+                    <span class="mb-4">2</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="w-11/12 h-full relative">
+                    <video  controls src="{{asset('videos/v4.mp4')}}" class="w-full h-full" id="on-play">
+                        <source src="{{asset('videos/v4.mp4')}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+            </div>
+            <div class="w-1/4 h-full flex flex-col items-center justify-between py-10">
+                <div class="w-3/4 mx-auto text-left">
+                    <h3 class="text-start text-3xl text-white font-bold mt-2">What I loved about </h3>
+                    <h1 class="text-start text-6xl text-white font-bold">MTDAHL</h1>
+                </div>
+                <div class="w-3/4 mx-auto text-left">
+                    <h3 class="text-start text-xl text-white font-bold mt-2 w-2/3">up next</h3>
+                    <div class="w-full h-60 ">
+                        <video class="w-full cursor-pointer" src="{{asset('videos/v3.mp4')}}" id="small-video"></video>
+                        <p class="font-bold">the god father</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
