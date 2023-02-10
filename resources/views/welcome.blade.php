@@ -99,7 +99,7 @@
                                 <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Upcoming Screenings</a>
                             </li>
                             <li>
-                                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Soundtracks</a>
+                                <a href="#sound_track" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Soundtracks</a>
                             </li>
                         </ul>
                     </div>
@@ -451,6 +451,16 @@
                 </div>
 
             </div>
+        </div>
+    </div>
+    <div class="w-full mx-auto bg-black" id="sound_track">
+        <div class="w-full py-20">
+            <h1 class="font-bold p-8 my-8 text-2xl text-center text-white ">
+                MTDAHL Soundtrack
+            </h1>
+        </div>
+        <div class="w-full h-screen flex  items-center">
+            <iframe width="1280" height="720" class="mx-auto" src="https://www.youtube.com/embed/hcytiqpvy-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
     <div class="container">
