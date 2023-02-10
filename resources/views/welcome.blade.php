@@ -453,13 +453,13 @@
             </div>
         </div>
     </div>
-    <div class="w-full mx-auto bg-black" id="sound_track">
+    <div class="w-full mx-auto bg-black" >
         <div class="w-full py-20">
             <h1 class="font-bold p-8 my-8 text-2xl text-center text-white ">
                 MTDAHL Soundtrack
             </h1>
         </div>
-        <div class="w-full h-screen flex  items-center">
+        <div class="w-full h-screen flex  items-center" id="sound_track">
             <iframe width="1280" height="720" class="mx-auto" src="https://www.youtube.com/embed/hcytiqpvy-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
