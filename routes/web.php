@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/create', [HomeController::class,'create']);
 Route::post('/create', [HomeController::class,'store'])->name('store.upcoming');
+
+
+Route::get('file-upload', [HomeController::class, 'createnew'])->name('files.index');
+Route::post('file-upload/upload-large-files', [HomeController::class, 'uploadLargeFiles'])->name('files.upload.large');

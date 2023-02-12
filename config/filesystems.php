@@ -41,7 +41,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-
+        'scenes' => [
+            'driver' => 'local',
+            'root' => storage_path('app/photos'),
+            'url' => env('API_URL').'/photos',
+            'visibility' => 'public',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -68,6 +73,8 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('scenes') => storage_path('app/scenes'),
+
     ],
 
 ];
