@@ -265,9 +265,27 @@
             </div>
 
         </div>
+        <div class="w-full flex justify-end my-28" >
+            <div  class="p-10 flex flex-col flex-wrap items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-4xl ml-28 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative mr-28"
+                  style="background-color: #E3DFD1">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Larry O. Harrison</h5>
+                    <h3 class="mb-1 text-xs font-bold tracking-tight text-gray-900 dark:text-white ca">Writer, Playwright, & Executive Producer</h3>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Larry O. Harrison was born December 17, 1954 in Washington, D.C. as the youngest of 3 children born to Edward and Elizabeth Harrison.
+                        He has lived and studied in Washington, D.C., Maryland, Texas, and San Francisco. He is the father of 4  in which he raised 3
+                        of his children individually following the death of his spouse Millian Harrison in 2003. He has been educated in both public and private schools
+                        inclusive of seven different colleges/universities resulting in various professional certifications and a B.A. in Theatre Arts/Playwriting.
+                    </p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> Mr. Harrison has created a variety of poetic, stage, and life reflective literature such as "For What Man Has Left Undone (cc 1982); "Much To Do About Her Love" (cc1983);"Tales of Juvenile Jail"; "Poetic Works of Hesasolophi"; and " From G to Me" to mention a few.
+                        Mr. Harrison has served within the artistic community as a Concert Promoter, Music DJ, Theatre House Manager, Entertainment Security Agent for Night Clubs and Entertainment Persons, Role Play Actor for Educational Videos, and Stage Crew Member for Stage and Musical Performances within Private and Educational Venues.
+                        Mr. Harrison is currently dividing his time between creative writing projects, teaching martial arts, facilitating judicial mediations for D.C. Superior Court, and Assisting in the raising of his grandchildren.. </p>
+                </div>
+            </div>
+
+        </div>
     </div>
 {{--    biography section ends here--}}
-    <div class="w-full bg-cover bg-black" id="what_i_loved">
+    <div class="w-full bg-cover bg-black" id="relatioship_advices">
         <div class="w-full h-screen bg-black py-20 flex flex-wrap">
             <div class="w-1/4 h-full flex flex-col items-center justify-between py-10">
                 <div class="w-3/4 mx-auto text-left">
@@ -309,7 +327,7 @@
             </div>
         </div>
     </div>
-    <div class="w-full bg-cover bg-black" id="relatioship_advices">
+    <div class="w-full bg-cover bg-black" id="what_i_loved">
         <div class="w-full h-screen bg-black py-20 flex flex-wrap">
             <div class="w-3/4 h-full flex">
                 <div class="w-1/12 flex flex-col text-white items-center justify-center mx-auto">
