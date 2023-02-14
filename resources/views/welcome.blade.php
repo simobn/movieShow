@@ -83,7 +83,7 @@
             }
 
             .videos-grid-video > iframe {
-                height:278px;
+                height:420px;
             }
         </style>
     </head>
@@ -392,7 +392,7 @@
         </div>
     </div>
 
-    <div class="w-full mx-auto bg-black" >
+    <div class="container mx-auto bg-black" >
         <div class="w-full py-20">
             <h1 class="font-bold p-8 my-8 text-2xl text-center text-white ">
                 MTDAHL Soundtrack
