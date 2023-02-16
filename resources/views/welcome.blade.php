@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>MTDAHL</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,6 +12,9 @@
         <script src="{{asset('js/jquery-3.6.3.js')}}"></script>
         <!-- Styles -->
         <style>
+            body{
+                scroll-behavior: smooth;
+            }
             .btn-close {
                 color: #aaaaaa;
                 font-size: 20px;
@@ -230,7 +233,6 @@
                 <div class="flex flex-col justify-between p-4 leading-normal">
                     <h5 class="ml-48 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Adrian Zeigler</h5>
                     <h3 class="ml-48 mb-1 text-xs font-bold tracking-tight text-gray-900 dark:text-white">Actor, Voice Over Talent, Poet, Producer, Director, & Writer.</h3>
-                    <h3 class="ml-48 mb-1 text-xs font-bold tracking-tight text-gray-900 dark:text-white">Music, Acting</h3>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 pl-48">Adrian Zeigler (A.Z.) was born in Prince George’s Hospital in Cheverly, MD to Dr.
                         Ronald &amp; Mrs. Valerie Zeigler. Upper Marlboro and Mitchellville, MD are Adrian’s hometowns.
                         During early adolescent years, Adrian took a strong liking to the Performing Arts (Theatre,
@@ -309,16 +311,16 @@
                     </video>
                 </div>
                 <div class="w-1/12 flex flex-col text-white items-center justify-center mx-auto">
-                    <span>
+                    <span id="previous" class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                         </svg>
 
                     </span>
-                    <span class="mt-4">1</span>
+                    <span class="mt-4" id="count">1</span>
                     <span>/</span>
                     <span class="mb-4">2</span>
-                    <span>
+                    <span id="next" class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
@@ -331,23 +333,22 @@
         <div class="w-full h-screen bg-black py-20 flex flex-wrap">
             <div class="w-3/4 h-full flex">
                 <div class="w-1/12 flex flex-col text-white items-center justify-center mx-auto">
-                    <span>
+                    <span id="wil_previous" class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                         </svg>
-
                     </span>
-                    <span class="mt-4">1</span>
+                    <span class="mt-4" id="wil_count">1</span>
                     <span>/</span>
                     <span class="mb-4">2</span>
-                    <span>
+                    <span id="wil_next" class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
                     </span>
                 </div>
                 <div class="w-11/12 h-full relative">
-                    <video  controls src="{{asset('videos/v4.mp4')}}" class="w-full h-full" id="on-play">
+                    <video  controls src="{{asset('videos/v4.mp4')}}" class="w-full h-full" id="wilon-play">
                         <source src="{{asset('videos/v4.mp4')}}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -362,7 +363,7 @@
                 <div class="w-3/4 mx-auto text-left">
                     <h3 class="text-start text-xl text-white font-bold mt-2 w-2/3">up next</h3>
                     <div class="w-full h-60 ">
-                        <video class="w-full cursor-pointer" src="{{asset('videos/v3.mp4')}}" id="small-video"></video>
+                        <video class="w-full cursor-pointer" src="{{asset('videos/v3.mp4')}}" id="wilsmall-video"></video>
                         <p class="font-bold">the god father</p>
                     </div>
                 </div>
@@ -372,7 +373,7 @@
     </div>
     <div class="container  mx-auto">
         <div class="w-full py-20">
-            <h1 class="font-bold p-8 my-8 text-2xl text-center text-white ">Upcoming scenes</h1>
+            <h1 class="font-bold p-8 my-8 text-2xl text-center text-white ">Upcoming Screenings</h1>
         </div>
         <div class="videos-grid" id="upcoming">
             @forelse($scenes as $movie)
@@ -386,7 +387,7 @@
                     </video>
                 </div>
             @empty
-                <h1 class="mx-auto text-white">no upcoming scenes yet</h1>
+                <h1 class="mx-auto text-white">no upcoming Screens yet</h1>
             @endforelse
 
         </div>
@@ -425,23 +426,25 @@
     </div>
 
     <script>
-        $('#small-video').on('click',function (e) {
-            let toPlay = $(e.target)[0].src;
-            let nextPlay = $("#on-play").attr('src')
-            //clear on play src
-            var currentVideo = $("#on-play");
-            // Create a new video element with updated source
-            var newVideo = $('<video controls class="w-full h-full">').attr("src", toPlay);
-            newVideo.html(`<source src="${toPlay}" type="video/mp4">`)
-            // Replace the current video element with the new one
-            currentVideo.replaceWith(newVideo);
-
-
-            let smallVideo = $('#small-video')
-            let newSmallVideo = $('<video  class="w-full cursor-pointer" id="small-video">').attr("src", nextPlay);
-            smallVideo.replaceWith(newSmallVideo)
-        })
-
+        // $('#small-video').on('click',function (e) {
+        //     let toPlay = $(e.target)[0].src;
+        //     let nextPlay = $("#on-play").attr('src')
+        //     //clear on play src
+        //     var currentVideo = $("#on-play");
+        //     // Create a new video element with updated source
+        //     var newVideo = $('<video controls class="w-full h-full">').attr("src", toPlay);
+        //     newVideo.html(`<source src="${toPlay}" type="video/mp4">`)
+        //     // Replace the current video element with the new one
+        //     currentVideo.replaceWith(newVideo);
+        //
+        //
+        //     let smallVideo = $('#small-video')
+        //     let newSmallVideo = $('<video  class="w-full cursor-pointer" id="small-video">').attr("src", nextPlay);
+        //     smallVideo.replaceWith(newSmallVideo)
+        // })
+        // $('#wilsmall-video').on('click',function (e) {
+        //     toggleWilVideos()
+        // })
         $('.openmodale').click(function (e) {
             e.preventDefault();
             $('.modale').addClass('opened');
@@ -458,6 +461,73 @@
             $('#trailer-play').remove()
             $('.modale').removeClass('opened');
         });
+
+        $('#wil_previous').click(function (e) {
+            let count = $('#wil_count').html()
+            if(count === 2 || count === '2'){
+                $('#wil_count').html('1')
+                toggleWilVideos()
+            }
+        });
+
+        $('#wil_next').click(function (e) {
+            let count = $('#wil_count').html()
+            if(count === 1 || count === '1'){
+                $('#wil_count').html('2')
+                toggleWilVideos()
+            }
+        });
+
+        $('#previous').click(function (e) {
+            let count = $('#count').html()
+            if(count === 2 || count === '2'){
+                $('#count').html('1')
+                toggleVideos()
+            }
+        });
+
+        $('#next').click(function (e) {
+            let count = $('#wil_count').html()
+            if(count === 1 || count === '1'){
+                $('#count').html('2')
+                toggleVideos()
+            }
+        });
+
+        function toggleWilVideos(){
+            let toPlay = $('#wilsmall-video').attr('src');
+            let nextPlay = $("#wilon-play").attr('src')
+            // //clear on play src
+            var currentVideo = $("#wilon-play");
+            // // Create a new video element with updated source
+            var newVideo = $('<video controls class="w-full h-full" id="wilon-play">').attr("src", toPlay);
+            newVideo.html(`<source src="${toPlay}" type="video/mp4"  >`)
+            // // Replace the current video element with the new one
+            currentVideo.replaceWith(newVideo);
+            //
+            //
+            let smallVideo = $('#wilsmall-video')
+            let newSmallVideo = $('<video  class="w-full cursor-pointer" id="wilsmall-video">').attr("src", nextPlay);
+            smallVideo.replaceWith(newSmallVideo)
+        }
+
+
+        function toggleVideos(){
+            let toPlay = $('#small-video').attr('src');
+            let nextPlay = $("#on-play").attr('src')
+            //clear on play src
+            var currentVideo = $("#on-play");
+            // Create a new video element with updated source
+            var newVideo = $('<video controls class="w-full h-full" id="on-play">').attr("src", toPlay);
+            newVideo.html(`<source src="${toPlay}" type="video/mp4">`)
+            // Replace the current video element with the new one
+            currentVideo.replaceWith(newVideo);
+
+
+            let smallVideo = $('#small-video')
+            let newSmallVideo = $('<video  class="w-full cursor-pointer" id="small-video">').attr("src", nextPlay);
+            smallVideo.replaceWith(newSmallVideo)
+        }
     </script>
     </body>
 </html>
