@@ -387,7 +387,7 @@
                     </video>
                 </div>
             @empty
-                <h1 class="mx-auto text-white">no upcoming Screens yet</h1>
+                <h1 class="mx-auto text-white">no upcoming Screenings yet</h1>
             @endforelse
 
         </div>
